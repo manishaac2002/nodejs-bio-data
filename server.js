@@ -13,7 +13,7 @@ const pool = mysql.createPool({
     user:process.env.MYSQL_USER,
     password:process.env.MYSQL_PASSWORD,
     database:process.env.MYSQL_DATABASE_NAME
-}).promise()
+})
 
 pool.getConnection((error, connection) => {
  if (connection) {
@@ -28,13 +28,13 @@ pool.on('error', (err) => {
   });
 
 
-
 // APIs
 application.get('/', (request, response) => {
     response.send('Hello World')
 })
 application.post('/bio-data', (request, response) => {
-    const { name, email, address, phone_number, profile_image } = request.body
+    const { name, age,address,pin_code,email_id,phone_number,
+    gender,skills,linkedin_url,profile_url,no_of_views} = request.body
     console.log(request.body);
     response.send('This is bio data')
 })
