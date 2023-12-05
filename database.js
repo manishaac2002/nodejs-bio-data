@@ -11,12 +11,16 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE_NAME
 }).promise()
 
-const createUserDetailsDb = async (id,name, age, address, pin_code, email_id, phone_number,gender, skills, linkedin_url, profile_url, no_of_views,created_at) => {
-    const result = await pool.query(`
-        INSERT INTO user_details(id,name, age, address, pin_code, email_id, phone_number,gender, skills, linkedin_url, profile_url, no_of_views,created_at)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)`, [id,name, age, address, pin_code, email_id, phone_number, gender, skills, linkedin_url, profile_url, no_of_views,created_at]
-    )
-    return result
+// const createUserDetailsDb = async (id, name, age, address, pin_code, email_id, phone_number, gender, skills, linkedin_url, profile_url, no_of_views, created_at) => {
+//     const result = await pool.query(` 
+//     INSERT INTO user_details(id,name, age, address, pin_code, email_id, phone_number,gender, skills, linkedin_url, profile_url, no_of_views,created_at)
+//     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)`, [id, name, age, address, pin_code, email_id, phone_number, gender, skills, linkedin_url, profile_url, no_of_views, created_at]
+//     )
+//     return result
+// }
+async function createNewUser(name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views){
+    const result =await pool.query(` INSERT INTO user_details (name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views)
+    VALUES()`)
 }
 
 pool.getConnection((error, connection) => {
