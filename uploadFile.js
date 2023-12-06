@@ -2,16 +2,16 @@
 const multer = require('multer');
 const path = require('path');
 
-var storage  = multer.diskStorage(
+var storage = multer.diskStorage({
+  destination: 'uploads',
+  filename: function (req, file, cb) 
   {
-      destination : 'uploads',  
-      filename    : function(req, file ,cb)
-                    {
-                        cb(null,Date.now() + path.extname(file.originalname));
-                    }
-  });
+      const fileRenamer = file.originalname.replace(/\.[^/.]+$/,"") +'_'+ Date.now() + path.extname(file.originalname)
+      cb(null, fileRenamer);
+      req.renamedFile = fileRenamer
+  }
+});
 
-const fileName = storage.filename;
-const uploadFile = multer({storage : storage}).single('profile');
+const uploadFile = multer({ storage: storage }).single('profile');
 
-module.exports = { uploadFile , fileName }
+module.exports = { uploadFile }
