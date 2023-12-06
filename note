@@ -1,0 +1,24 @@
+// const createUserDetailsDb = async (id, name, age, address, pin_code, email_id, phone_number, gender, skills, linkedin_url, profile_url, no_of_views, created_at) => {
+//     const result = await pool.query(` 
+//     INSERT INTO user_details(id,name, age, address, pin_code, email_id, phone_number,gender, skills, linkedin_url, profile_url, no_of_views,created_at)
+//     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)`, [id, name, age, address, pin_code, email_id, phone_number, gender, skills, linkedin_url, profile_url, no_of_views, created_at]
+//     )
+//     return result
+// }
+// async function createNewUser(name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views){
+//     const [result] =await pool.query(` INSERT INTO user_details (name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views)
+//     VALUES(?,?,?,?,?,?,?,?,?,?,?)`,[name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views])
+//     return result
+// }
+// const  createNewUser= async(name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views)=>{
+//     const [result] =await pool.query(` INSERT INTO user_details (name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views)
+//     VALUES(?,?,?,?,?,?,?,?,?,?,?)`,[name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views])
+//     return result
+// }
+// try {
+    
+//     const result = await createNewUser('manisha',23,'ganganagar','634532','manishaac2002@gmail.com','345678923',1,'js','asdfghjk','wertyui',2)
+//     console.log(result)
+// } catch (error) {
+//     console.log(error);
+// }

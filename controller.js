@@ -1,3 +1,4 @@
+const createNewUser = require("./database")
 const createUserDetailsDb = require("./database")
 
 const getUserDetailsController =(request,response)=>{
@@ -5,7 +6,7 @@ const getUserDetailsController =(request,response)=>{
 }
 const createUserDetailsController =async(request,response)=>{
     const data =request.body
-    const  userDetailsFromDb = await createUserDetailsDb(data)
+    const  userDetailsFromDb = await createNewUser(data)
     response.send('This is bio data')
 }
 
