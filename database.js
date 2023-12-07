@@ -11,9 +11,9 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE_NAME
 }).promise()
 
-async function createNewUser(data){
+async function createNewUser(data,profile){
     const [result] =await pool.query(` INSERT INTO user_details (name,age,address,pin_code,email_id,phone_number,gender,skills,linkedin_url,profile_url,no_of_views)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?)`,[data.name,data.age,data.address,data.pin_code,data.email_id,data.phone_number,data.gender,data.skills,data.linkedin_url,data.profile_url,data.no_of_views])
+    VALUES(?,?,?,?,?,?,?,?,?,?,?)`,[data.name,data.age,data.address,data.pin_code,data.email_id,data.phone_number,data.gender,data.skills,data.linkedin_url,profile,data.no_of_views])
     return result
 }
 
