@@ -19,6 +19,8 @@ async function createNewUser(data,profileUrl,fileName){
     return result
 }
 
+//  await pool.query(` UPDATE user_details SET profile_url = fileName where profile_url = profileUrl `)
+
 pool.getConnection((error, connection) => {
     if (error) {
         console.log(error, "Error in connecting with database");

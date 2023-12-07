@@ -25,13 +25,13 @@ const ObjectUpload = (bucket,renamedFile) => {
     params: {
       Bucket: bucket,
       Key: renamedFile,
-      Body: fileStream
+      Body: fileStream,
+      ACL: "public-read"
     }
   }).done()
   .then(() => console.log("Uploaded!!"))
-  .catch(e => {
-    //trigger cron for rety uplode
-    // update in sql 
+  .catch(async e => {
+  //  await pool.query(` UPDATE user_details SET profile_url = fileName where profile_url = profileUrl `)
     console.log(e);
     console.error("unable to upload");
   });
