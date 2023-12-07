@@ -15,7 +15,7 @@ const s3  = new S3({
   region            : 'ap-south-1'
 });
 
-const ObjectUpload = (bucket,renamedFile ) => {
+const ObjectUpload = (bucket,renamedFile) => {
 
     filePath   = path.join(__dirname,'uploads',renamedFile);
     fileStream = fs.createReadStream(filePath);
@@ -28,8 +28,11 @@ const ObjectUpload = (bucket,renamedFile ) => {
       Body: fileStream
     }
   }).done()
-  .then(() => `https://${bucket}.s3.${region}.amazonaws.com/${renamedFile}`)
+  .then(() => console.log("Uploaded!!"))
   .catch(e => {
+    //trigger cron for rety uplode
+    // update in sql 
+    console.log(e);
     console.error("unable to upload");
   });
 };
