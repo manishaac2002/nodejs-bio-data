@@ -5,38 +5,33 @@ const { S3 } = require('@aws-sdk/client-s3');
 
 const path = require('path');
 const fs = require('fs');
-
+region = 'ap-south-1';
 const s3  = new S3({
   credentials:
   {
     accessKeyId     : 'AKIAU5JBRF44LLQXZBUC',
     secretAccessKey : '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'
   },
-  region          : 'us-east-2'
+  region            : 'ap-south-1'
 });
 
-const ObjectUpload = (filePath, bucket, key) => {
+const ObjectUpload = (bucket,renamedFile ) => {
+
+    filePath   = path.join(__dirname,'uploads',renamedFile);
+    fileStream = fs.createReadStream(filePath);
   
   return new Upload({
     client: s3,
     params: {
       Bucket: bucket,
-      Key: key,
-      Body: filePath
+      Key: renamedFile,
+      Body: fileStream
     }
   }).done()
-  .then(() => {
-    
-  })
+  .then(() => `https://${bucket}.s3.${region}.amazonaws.com/${renamedFile}`)
   .catch(e => {
     console.error("unable to upload");
   });
 };
 
-filePath   = path.join(__dirname,'upload','image.jpeg');
-fileStream = fs.createReadStream(filePath);
-bucket   = 'atre-s3-bucket';
-key      = 'bujji.jpeg';
-
-
-module.exports = { ObjectUpload } 
+module.exports = { ObjectUpload }
