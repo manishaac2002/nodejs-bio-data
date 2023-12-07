@@ -6,7 +6,7 @@ const getUserDetailsController =(request,response)=>{
 }
 const createUserDetailsController =async(request,response)=>{
     const data    = request.body
-    const profile_url = request.renamedFile
+    const profile = request.renamedFile
     const  userDetailsFromDb = await createNewUser(data,profile)
     response.send('This is bio data')
 }
