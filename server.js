@@ -8,6 +8,7 @@ application.use(express.json())
 application.get('/get-user-details', getUserDetailsController)
 application.post('/bio-data', createUserDetailsController)
 
+// port
 const port = 2000
 application.listen(port, () => {
     console.log(`Server is running on the port ${port}`);
