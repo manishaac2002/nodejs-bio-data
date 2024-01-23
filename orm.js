@@ -1,4 +1,4 @@
-export const queryBuilder = () =>
+const queryBuilder = () =>
 {
     const query = 
     {
@@ -160,6 +160,8 @@ export const queryBuilder = () =>
 
     return { column , tableName }
 } 
+
+module.exports = { queryBuilder }
 
 /*
 

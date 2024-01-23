@@ -9,7 +9,7 @@ application.use(express.json())
 
 // APIs
 application.get('/get-user-details', getUserDetailsController)
-application.post('/bio-data',uploadFile.uploadFile,createUserDetailsController)
+application.post('/bio-data',createUserDetailsController)
 
 const port = 3000
 application.listen(port, () => {
