@@ -29,4 +29,4 @@ pool.on('error', (err) => {
     console.error('Database pool error:', err);
 });
 
-module.exports = {createNewUser}
+module.exports = { createNewUser }

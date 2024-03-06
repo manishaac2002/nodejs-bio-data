@@ -1,4 +1,4 @@
-const {createNewUser} = require("./database")
+const { createNewUser } = require("./database")
 
 // get
 const getUserDetailsController = (request, response) => {
