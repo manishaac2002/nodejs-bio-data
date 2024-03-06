@@ -8,7 +8,6 @@ const getUserDetailsController = (request, response) => {
 // post
 const createUserDetailsController = async (request, response) => {
     const data = request.body
-   
     const userDetailsFromDb = await createNewUser(data)
     response.send('This is bio data')
 }
