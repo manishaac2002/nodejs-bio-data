@@ -1,4 +1,4 @@
-const { createNewUser } = require("./database")
+import db from "./database.js"
 
 // get
 const getUserDetailsController = (request, response) => {
@@ -8,8 +8,11 @@ const getUserDetailsController = (request, response) => {
 // post
 const createUserDetailsController = async (request, response) => {
     const data = request.body
-    const userDetailsFromDb = await createNewUser(data)
+    const userDetailsFromDb = await db.createNewUser(data)
     response.send('This is bio data')
 }
 
-module.exports = { getUserDetailsController, createUserDetailsController } 
+export default {
+    getUserDetailsController,
+    createUserDetailsController
+} 

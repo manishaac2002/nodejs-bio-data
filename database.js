@@ -1,5 +1,5 @@
-const mysql = require('mysql2')
-const dotenv = require('dotenv')
+import mysql from 'mysql2'
+import dotenv from 'dotenv'
 dotenv.config()
 
 // connection
@@ -29,4 +29,4 @@ pool.on('error', (err) => {
     console.error('Database pool error:', err);
 });
 
-module.exports = { createNewUser }
+export default { createNewUser }

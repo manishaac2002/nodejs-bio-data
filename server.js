@@ -1,12 +1,12 @@
-const express = require('express')
-const { getUserDetailsController, createUserDetailsController } = require('./controller.js')
+import express from "express";
+import controller from './controller.js'
 
 const application = express()
 application.use(express.json())
 
 // APIs
-application.get('/get-user-details', getUserDetailsController)
-application.post('/bio-data', createUserDetailsController)
+application.get('/get-user-details', controller.getUserDetailsController)
+application.post('/bio-data', controller.createUserDetailsController)
 
 // port
 const port = 2000
